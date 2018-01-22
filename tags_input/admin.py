@@ -1,7 +1,7 @@
+from django.contrib import admin
+
 from . import fields
 from . import widgets
-
-from django.contrib import admin
 
 
 class TagsInputMixin(object):
@@ -18,6 +18,12 @@ class TagsInputMixin(object):
         '''
         Get a form Field for a ManyToManyField.
         '''
+        
+        try:
+            rel = db_field.rel
+        except AttributeError:
+            rel = db_field.remote_field
+ 
         # If it uses an intermediary model that isn't auto created, don't show
         # a field in admin.
 
@@ -35,7 +41,7 @@ class TagsInputMixin(object):
         else:
             print('nin fields', tag_fields, db_field.name)
 
-        queryset = db_field.rel.to._default_manager.get_queryset()
+        queryset = rel.to._default_manager.get_queryset()
 
         kwargs['queryset'] = queryset
         kwargs['widget'] = widgets.AdminTagsInputWidget(
@@ -66,3 +72,4 @@ class TagsInputTabularInline(TagsInputMixin, admin.TabularInline):
 
 class TagsInputStackedInline(TagsInputMixin, admin.StackedInline):
     pass
+
