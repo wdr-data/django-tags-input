@@ -10,12 +10,18 @@ class TagsInputMixin(object):
         '''
         Get a form Field for a ManyToManyField.
         '''
+        
+        try:
+            rel = db_field.rel
+        except AttributeError:
+            rel = db_field.remote_field
+ 
         # If it uses an intermediary model that isn't auto created, don't show
         # a field in admin.
-        if not db_field.rel.through._meta.auto_created:
+        if not rel.through._meta.auto_created:
             return None
 
-        queryset = db_field.rel.to._default_manager.get_queryset()
+        queryset = rel.to._default_manager.get_queryset()
 
         kwargs['queryset'] = queryset
         kwargs['widget'] = widgets.AdminTagsInputWidget(
