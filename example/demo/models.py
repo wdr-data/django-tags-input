@@ -45,7 +45,7 @@ class ErrorName(ReprModel):
 
 class ForeignKeyToSimpleName(ReprModel):
     name = models.CharField(max_length=50)
-    simple_name = models.ForeignKey(SimpleName)
+    simple_name = models.ForeignKey(SimpleName, on_delete=models.SET_NULL)
 
 
 class ManyToManyToSimpleName(ReprModel):
@@ -79,8 +79,8 @@ class ManyToManyToError(ReprModel):
 
 class ThroughModel(ReprModel):
     name = models.CharField(max_length=50)
-    simple_name = models.ForeignKey(SimpleName)
-    many_to_many_through = models.ForeignKey('ManyToManyThrough')
+    simple_name = models.ForeignKey(SimpleName, on_delete=models.SET_NULL)
+    many_to_many_through = models.ForeignKey('ManyToManyThrough', on_delete=models.SET_NULL)
 
 
 class ManyToManyThrough(ReprModel):
@@ -90,7 +90,7 @@ class ManyToManyThrough(ReprModel):
 
 class InlineModel(ReprModel):
     name = models.CharField(max_length=50)
-    simple_name = models.ForeignKey(SimpleName)
+    simple_name = models.ForeignKey(SimpleName, on_delete=models.SET_NULL)
     simple_names = models.ManyToManyField(ManyToManyToSimpleName)
     double_names = models.ManyToManyField(ManyToManyToDoubleName)
 
