@@ -20,8 +20,13 @@ class TagsInputMixin(object):
         # a field in admin.
         if not rel.through._meta.auto_created:
             return None
+        
+        try:
+            to = rel.to
+        except AttributeError:
+            to = rel.model
 
-        queryset = rel.to._default_manager.get_queryset()
+        queryset = to._default_manager.get_queryset()
 
         kwargs['queryset'] = queryset
         kwargs['widget'] = widgets.AdminTagsInputWidget(
