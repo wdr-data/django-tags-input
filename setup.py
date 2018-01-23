@@ -47,10 +47,12 @@ setuptools.setup(
     package_data={
         'tags_input': [
             'templates/*.html',
-            'static/js/*.js',
-            'static/css/*.css',
-            'static/css/base/*.css',
-            'static/css/base/images/*.png',
+            'static/*.js',
+            'static/jquery-tagsinput-revisited-2.0/dist/*.js',
+            'static/jquery-tagsinput-revisited-2.0/dist/*.css',
+            'static/jquery-ui-1.12.1/*.js',
+            'static/jquery-ui-1.12.1/*.css',
+            'static/jquery-ui-1.12.1/images/*.png',
         ],
     },
     long_description=readme,
