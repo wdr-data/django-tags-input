@@ -1,5 +1,5 @@
 __package_name__ = 'django-tags-input'
-__version__ = '3.2.7'
+__version__ = '3.2.8'
 __author__ = 'Rick van Hattem'
 __email__ = 'wolph@wol.ph'
 __description__ = ' '.join('''
