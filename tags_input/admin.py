@@ -41,7 +41,6 @@ class TagsInputMixin(object):
         if tag_fields and db_field.name not in tag_fields:
             return super(TagsInputMixin, self).formfield_for_manytomany(
                 db_field, request, **kwargs)
-        else:
 
         queryset = to._default_manager.get_queryset()
 
