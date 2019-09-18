@@ -47,15 +47,13 @@ if __name__ == '__main__':
         package_data={
             'tags_input': [
                 'templates/*.html',
-                'static/js/*.js',
-                'static/css/*.css',
-                'static/css/base/*.css',
-                'static/css/base/images/*.png',
+                'static/*.min.js',
+                'static/*.min.css',
             ],
         },
         extras_require={
             'docs': [
-                'django<2',
+                'django<2.1',
                 'mock',
                 'sphinx>=1.7.2',
             ],
@@ -71,9 +69,17 @@ if __name__ == '__main__':
         },
         long_description=long_description,
         cmdclass={'test': PyTest},
-        classifiers=['License :: OSI Approved :: BSD License'],
+        classifiers=[
+            'Development Status :: 5 - Production/Stable',
+            'Environment :: Web Environment',
+            'Intended Audience :: Developers',
+            'License :: OSI Approved :: BSD License',
+            'Natural Language :: English',
+            'Programming Language :: Python :: 3.6',
+            'Programming Language :: Python :: 3.7',
+            'Programming Language :: Python :: 3.8',
+        ],
         install_requires=[
             'six',
         ]
     )
-

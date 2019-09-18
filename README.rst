@@ -33,7 +33,7 @@ How to install
 
 Installing this module only takes a couple of minutes.
 
-Currently Django 1.8, 1.9, 1.10 and 1.11 are supported and tested in combination with Python 2.7, 3.2, 3.3, 3.4, 3.5, 3.6 and Pypy.
+Currently Django 1.8, 1.9, 1.10 and 1.11, 2.1 and 2.2 are supported and tested in combination with Python 2.7, 3.2, 3.3, 3.4, 3.5, 3.6 and Pypy.
 
 For Django 1.4, Django 1.5, Django 1.6 and Django 1.7 in combination with
 Python 2.6 and 2.7. Python 3.2, 3.3 and 3.4. Pypy and Pypy3 version 2.1.0 can
@@ -129,9 +129,13 @@ To test the project simply clone the repository, install and run the example:
 
 .. code-block:: bash
 
+    # mkvirtualenv is part of virtualenvwrapper, using a regular virtualenv, pyvenv or pipenv is also possible
+    # Or even without any type of virtualenv at all
     mkvirtualenv django-tags-input
     git clone https://github.com/WoLpH/django-tags-input.git
-    pip install -e django-tags-input
+    # Tested with up to Django 2.1
+    pip install django
+    pip install -e 'django-tags-input[tests]'
     cd django-tags-input/example
     python manage.py runserver
 
