@@ -49,6 +49,7 @@ if __name__ == '__main__':
                 'templates/*.html',
                 'static/*.min.js',
                 'static/*.min.css',
+                'static/images/*.png',
             ],
         },
         extras_require={
