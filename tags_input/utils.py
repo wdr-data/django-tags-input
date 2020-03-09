@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.db import models
-from django.utils.functional import curry
+from functools import partial as curry
 
 from . import exceptions
 
