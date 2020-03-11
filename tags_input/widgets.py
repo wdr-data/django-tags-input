@@ -120,6 +120,7 @@ class AdminTagsInputWidget(
             ),
         })
         js = getattr(settings, 'TAGS_INPUT_ADMIN_JS', (
+            'admin/js/autocomplete.js',
             'jquery-3.2.1.min.js',
             'jquery-ui-1.12.1.min.js',
             'jquery.tagsinput-revisited-2.0.min.js',
